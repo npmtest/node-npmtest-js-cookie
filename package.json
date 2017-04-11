@@ -1,1 +1,40 @@
-{     "devDependencies": {         "js-cookie": "*",         "electron-lite": "kaizhu256/node-electron-lite#alpha",         "utility2": "kaizhu256/node-utility2#alpha"     },     "name":"npmtest-js-cookie",     "homepage": "https://github.com/npmtest/node-npmtest-js-cookie",     "repository": {         "type": "git",         "url": "https://github.com/npmtest/node-npmtest-js-cookie.git"     },     "scripts": {         "build-ci": "utility2 shReadmeTest build_ci.sh"     },     "version": "0.0.1" }
+{
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "description": "test coverage for [js-cookie (v2.1.4)](https://github.com/js-cookie/js-cookie#readme) [![npm package](https://img.shields.io/npm/v/npmtest-js-cookie.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-js-cookie) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-js-cookie.svg)](https://travis-ci.org/npmtest/node-npmtest-js-cookie)",
+    "devDependencies": {
+        "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "js-cookie": "*",
+        "utility2": "kaizhu256/node-utility2#alpha"
+    },
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmtest/node-npmtest-js-cookie",
+    "keywords": [
+        "coverage",
+        "test",
+        "js-cookie"
+    ],
+    "license": "MIT",
+    "main": "lib.npmtest_js_cookie.js",
+    "name": "npmtest-js-cookie",
+    "nameAlias": "npmtest_js_cookie",
+    "nameOriginal": "npmtest-js-cookie",
+    "os": [
+        "darwin",
+        "linux"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/npmtest/node-npmtest-js-cookie.git"
+    },
+    "scripts": {
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "(set -e; npm install \"kaizhu256/node-utility2#alpha\"; utility2 shDeployHeroku)",
+        "postinstall": "if [ -f npm_scripts.sh ]; then ./npm_scripts.sh postinstall; fi",
+        "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
+    },
+    "version": "0.0.1"
+}
